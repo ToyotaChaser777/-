@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from bot_logic import gen_pass
+from bot_logic import *
 
 client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
@@ -19,6 +19,14 @@ async def хелп(ctx):
 @client.command()
 async def пароль(ctx, number: int):
     await ctx.send(gen_pass(number))
+
+@client.command()
+async def смайл(ctx):
+    await ctx.send(smail())
+
+@client.command()
+async def монетка(ctx):
+    await ctx.send(coin())
 
 
 client.run("Token")
